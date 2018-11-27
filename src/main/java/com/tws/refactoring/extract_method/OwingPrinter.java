@@ -22,13 +22,10 @@ public class OwingPrinter {
     }
 
     void printBanner(){
-        System.out.println ("*****************************");
-        System.out.println ("****** Customer totals ******");
-        System.out.println ("*****************************");
+        System.out.println("*****************************\r\n" + "****** Customer totals ******\r\n" + "*****************************");
     }
 
     void printDetails(String name, double outstanding){
-        System.out.println("name: " + name);
-        System.out.println("amount: " + outstanding);
+        System.out.println("name: " + name + "\r\namount: " + outstanding);
     }
 }
