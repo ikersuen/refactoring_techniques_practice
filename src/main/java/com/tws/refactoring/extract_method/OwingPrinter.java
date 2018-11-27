@@ -18,27 +18,17 @@ public class OwingPrinter {
             outstanding += each.getAmount();
         }
 
-        // print details
-        System.out.println("name: " + name);
-        System.out.println("amount: " + outstanding);
+        printDetails(name, outstanding);
     }
 
-    public static void printBanner(){
+    void printBanner(){
         System.out.println ("*****************************");
         System.out.println ("****** Customer totals ******");
         System.out.println ("*****************************");
     }
 
-
-    public class Order {
-        private final double amount;
-
-        public Order(double amount) {
-            this.amount = amount;
-        }
-
-        public double getAmount() {
-            return amount;
-        }
+    void printDetails(String name, double outstanding){
+        System.out.println("name: " + name);
+        System.out.println("amount: " + outstanding);
     }
 }

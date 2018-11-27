@@ -1,17 +1,16 @@
-package com.tws.refactoring;
+package com.tws.refactoring.extract_method;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.tws.refactoring.extract_method.OwingPrinter;
-import com.tws.refactoring.extract_variable.*;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
-import static com.tws.refactoring.extract_method.OwingPrinter.printBanner;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class OwingTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -29,9 +28,18 @@ public class OwingTest {
 
     @Test
     public void printOwing() {
-        printBanner();
-        assertEquals("*****************************\r\n"
+        OwingPrinter owingPrinter = new OwingPrinter();
+        Order order = new Order(100);
+        List<Order> orderList = new ArrayList<>();
+        orderList.add(order);
+
+        owingPrinter.printOwing("OwingName", orderList);
+
+        String expectedResult = "*****************************\r\n"
                 +"****** Customer totals ******\r\n"
-                +"*****************************\r\n", outContent.toString());
+                +"*****************************\r\n"
+                +"name: OwingName\r\n"
+                +"amount: 100.0\r\n";
+        assertEquals(expectedResult, outContent.toString());
     }
 }
