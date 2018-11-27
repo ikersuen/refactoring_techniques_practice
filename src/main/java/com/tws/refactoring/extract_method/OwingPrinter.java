@@ -28,4 +28,12 @@ public class OwingPrinter {
     void printDetails(String name, double outstanding){
         System.out.println("name: " + name + "\r\namount: " + outstanding);
     }
+
+    double printOutstanding(Iterator<Order> elements, double outstanding){
+        while (elements.hasNext()) {
+            Order each = (Order) elements.next();
+            outstanding += each.getAmount();
+        }
+        return outstanding;
+    }
 }
