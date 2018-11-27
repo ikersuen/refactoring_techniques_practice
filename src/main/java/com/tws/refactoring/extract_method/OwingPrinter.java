@@ -7,13 +7,8 @@ import java.util.Vector;
 
 public class OwingPrinter {
     void printOwing(String name, List<Order> orders) {
-
-        double outstanding = 0.0;
-
         printBanner();
-
-        outstanding = printOutstanding(orders, outstanding);
-
+        double outstanding = printOutstanding(orders);
         printDetails(name, outstanding);
     }
 
@@ -25,7 +20,8 @@ public class OwingPrinter {
         System.out.println("name: " + name + "\r\namount: " + outstanding);
     }
 
-    double printOutstanding(List<Order> orders, double outstanding){
+    double printOutstanding(List<Order> orders){
+        double outstanding = 0.0;
         Iterator<Order> elements = orders.iterator();
         while (elements.hasNext()) {
             Order each = (Order) elements.next();
