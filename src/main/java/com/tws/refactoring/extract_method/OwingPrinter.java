@@ -24,8 +24,7 @@ public class OwingPrinter {
         double outstanding = 0.0;
         Iterator<Order> elements = orders.iterator();
         while (elements.hasNext()) {
-            Order each = (Order) elements.next();
-            outstanding += each.getAmount();
+            outstanding += elements.next().getAmount();
         }
         return outstanding;
     }
